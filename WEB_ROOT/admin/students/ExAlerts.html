@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Extended Alerts</title>
+    <!-- required scripts -->
+    ~[wc:commonscripts]
+    <!-- Required style sheets: screen.css, and print.css -->
+    <link href="/images/css/screen.css" rel="stylesheet" media="screen">
+    <link href="/images/css/print.css" rel="stylesheet" media="print">
+</head>
+
+<body>
+    ~[wc:admin_header_frame_css]
+    <!-- breadcrumb start -->
+    <a href="/admin/home.html" target="_top">Start Page</a> &gt; <a href="/admin/students/home.html?selectstudent=nosearch" target="_top">Student Selection</a> &gt; Extended Alerts
+    <!-- breadcrumb end -->
+    ~[wc:admin_navigation_frame_css]
+    <!-- start of main menu and content -->
+    ~[wc:title_student_begin_css]Extended Alerts~[wc:title_student_end_css]
+    <form action="/~[self.page]?frn=~(studentfrn)&changesSaved=true" method="POST">
+        <!-- start of content area -->
+        ~[if.~(gpv.changesSaved)=true]
+        <div class="feedback-confirm">~[text:psx.common.changes_recorded]</div>[/if]
+        <div class="tabs">
+            <ul class="group">
+                <li><a href="#tabAlerts">Alerts</a></li>
+                <li><a href="#tabIIP">Intensive Supports</a></li>
+                <li><a href="#tabLSP">Learning Supports</a></li>
+            </ul>
+            <div id="tabAlerts">
+                <fieldset>
+                    <div>
+                        <h2>Simple Alerts</h2>
+                        <label><img src="/images/ExAlerts/ExtAlerts_noWWW_SM.gif"> Display "No Web Access" Alert?</label>
+                        <input type="checkbox" value="0" name="[Students.U_EXTENDEDALERTS]alertWeb" />
+                    </div>
+                    <div>
+                        <label><img src="/images/ExAlerts/ExtAlerts_noPhoto_SM.png">Display "No Media Release on File" Alert? </label>
+                        <input type="checkbox" value="0" name="[Students.U_EXTENDEDALERTS]alertMedia" />
+                    </div>
+                    <div>
+                        <label><img src="/images/ExAlerts/ExtAlerts_over18_SM.png">Display "Over 18" Alert?</label>
+                        <input type="checkbox" value="0" name="[Students.U_EXTENDEDALERTS]alert18" />
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <table>
+                        <h2>Content Alerts</h2>
+                        <tbody>
+                            <tr bgcolor="#edf3fe">
+                                <td class="bold">~[text:psx.html.admin_students.emergency.medical_alert_text]</td>
+                                <td colspan="2">
+                                    <textarea name="[01]Alert_Medical" rows="4" cols="40"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bold">~[text:psx.html.admin_students.emergency.alert_expires,param:(date)]</td>
+                                <td colspan="2">
+                                    <input type="text" name="[01]Alert_MedicalExpires" value="" size="10"> ~[text:psx.html.admin_students.emergency._to_never_expire,param:~[i18shortdate:0/0/0]]
+                                </td>
+                            </tr>
+                            <tr bgcolor="#edf3fe">
+                                <td class="bold">~[text:psx.html.admin_students.disciplinealert.discipline_alert_text]</td>
+                                <td colspan="2">
+                                    <textarea name="[01]Alert_Discipline" rows="8" cols="40"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bold">~[text:psx.html.admin_students.disciplinealert.alert_expires,param:(date)]</td>
+                                <td colspan="2">
+                                    <input type="text" name="[01]Alert_DisciplineExpires" value="" size="10"> ~[text:psx.html.admin_students.disciplinealert._to_never_expire,param:~[i18shortdate:0/0/0]]</td>
+                            </tr>
+                            <tr bgcolor="#edf3fe">
+                                <td class="bold">~[text:psx.html.admin_students.misc.other_alert_text]</td>
+                                <td colspan="3">
+                                    <textarea name="[01]Alert_Other" rows="4" cols="40"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bold">~[text:psx.html.admin_students.misc.alert_expires,param:(Date)]</td>
+                                <td colspan="3">
+                                    <input type="text" name="[01]Alert_OtherExpires" value="" size="10"> ~[text:psx.html.admin_students.misc._to_never_expire,param:~[i18shortdate:0/0/0]]</td>
+                            </tr>
+                            <tr bgcolor="#edf3fe">
+                                <td class="bold">~[text:psx.html.admin_students.parentsguardian.guardian_alert_text]</td>
+                                <td colspan="2">
+                                    <textarea name="[01]Alert_Guardian" rows="4" cols="40"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bold">~[text:psx.html.admin_students.parentsguardian.alert_expires,param:(date)]</td>
+                                <td colspan="2">
+                                    <input type="text" class="psDateWidget" name="[01]Alert_GuardianExpires" value="" size="10"> ~[text:psx.html.admin_students.parentsguardian._to_never_expire,param:~[i18shortdate:0/0/0]]</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </fieldset>
+            </div>
+            <div id="tabIIP">
+                <div>
+                    <fieldset>
+                        <label><img src="/images/ExAlerts/ExtAlerts_IIP_SM.png">Display "Intensive Supports" Alert?</label>
+                        <input type="checkbox" value="0" name="[Students.U_EXTENDEDALERTS]alertIIP" />
+                    </fieldset>
+                    <fieldset>
+                        <h2>Assigned Supports</h2>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" value="0" name="[Students.U_EXTENDEDALERTS]IIPSLP" />
+                                        <label>Speech-Language Pathologist</label>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" value="0" name="[Students.U_EXTENDEDALERTS]IIPEA" />
+                                        <label>Educational Assistant</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" value="0" name="[Students.U_EXTENDEDALERTS]IIPOT" />
+                                        <label>Occupational Therapist</label>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" value="0" name="[Students.U_EXTENDEDALERTS]IIPPT" />
+                                        <label>Physiotherapist</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" value="0" name="[Students.U_EXTENDEDALERTS]IIPMS" />
+                                        <label>Medical Specialist</label>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" value="0" name="[Students.U_EXTENDEDALERTS]IIPPSY" />
+                                        <label>Psychologist</label>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </fieldset>
+                    <fieldset id="IIPUpdate">
+                        <h2>Introductory IIP Information</h2>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td align="right">
+                                        <a href="/admin/students/StudentViewIIP.html?frn=~(studentfrn)" title="Student IIP View"> View Static IIP Page </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="bold">Who is the Student?</td>
+                                    <td colspan="2">
+                                        <textarea name="[Students.U_EXTENDEDALERTS]IIPStuComment" rows="4" cols="150"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="bold">Learning Capacity:</td>
+                                    <td colspan="2">
+                                        <textarea name="[Students.U_EXTENDEDALERTS]IIPLearnCap" rows="4" cols="150"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="bold">Short Term Transition Plan (Year to Year):</td>
+                                    <td colspan="2">
+                                        <textarea name="[Students.U_EXTENDEDALERTS]IIPShortPlan" rows="4" cols="150"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="bold">Long Term Transition Plan (Year to Year):</td>
+                                    <td colspan="2">
+                                        <textarea name="[Students.U_EXTENDEDALERTS]IIPLongPlan" rows="4" cols="150"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="bold">Additional Information:</td>
+                                    <td colspan="2">
+                                        <textarea name="[Students.U_EXTENDEDALERTS]IIPAddInfo" rows="4" cols="150"></textarea>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <input type="hidden" name="[Students.U_EXTENDEDALERTS]IIPUserMod" id="IIPUserMod" value="">
+                        <input type="hidden" name="[Students.U_EXTENDEDALERTS]IIPDateMod" id="IIPDateMod" value="">
+                        <p>Section Last Modified by: ~([Students.U_EXTENDEDALERTS]IIPUserMod) on ~([Students.U_EXTENDEDALERTS]IIPDateMod)</p>
+                    </fieldset>
+                </div>
+            </div>
+            <div id="tabLSP">
+                <div>
+                    <fieldset>
+                        <label><img src="/images/ExAlerts/ExtAlerts_LSP_SM.png">Display "LSP" Alert?</label>
+                        <input type="checkbox" value="0" name="[Students.U_EXTENDEDALERTS]alertLSP" />
+                    </fieldset>
+                    <fieldset>
+                        <h2>Record of Adaptations</h2>
+                        <h2>Strengths</h2>
+                        <h2>Classroom Accomodations</h2>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+        <div class="button-row">
+            <input type="hidden" name="ac" value="prim">~[submitbutton]</div>
+        </div>
+    </form>
+    <!-- end of content area -->
+    ~[wc:admin_footer_frame_css]
+    <script>
+        $j(document).ready(function () {
+            $j('#IIPUpdate').change(function () {
+                $j('#IIPUserMod').val('~[x:username]');
+                $j('#IIPDateMod').val('~[short.date]');
+            });
+        });
+    </script>
+</body>
+
+</html>

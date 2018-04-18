@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <psExtension xmlns="http://www.powerschool.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.powerschool.com psextension.xsd">
+        <extensionname>U_EXTENDEDALERTS</extensionname>
+        <extendedTable coreTable="Students" dbTableName="U_EXTENDEDALERTS" comment="">
+            <field name="alertWeb" type="Boolean" defaultValue="0" comment="Controls display of web alert for extended alert plugin. " />
+            <field name="IIPLongPlan" type="String" length="2000" comment="Long Term Trans. Plan, descriptor plan." />
+            <field name="IIPShortPlan" type="String" length="2000" comment="Short Term Trans. Plan, descriptor field. " />
+            <field name="IIPStuComment" type="String" length="2000" comment="Who is the student, descriptor field." />
+            <field name="alertLSP" type="Boolean" defaultValue="0" comment="Controls display of LSP alert for extended alert plugin. " />
+            <field name="IIPAddInfo" type="String" length="2000" comment="Additional Information, descriptor field. " />
+            <field name="IIPUserMod" type="String" length="100" comment="User who modified the page last." />
+            <field name="alertMedia" type="Boolean" defaultValue="0" comment="Controls display of Media alert for extended alert plugin. " />
+            <field name="alertIIP" type="Boolean" defaultValue="0" comment="Controls display of IIP alert for extended alert plugin. " />
+            <field name="alert18" type="Boolean" defaultValue="0" comment="Controls display of over 18 alert for extended alert plugin. " />
+            <field name="IIPLearnCap" type="String" length="2000" comment="Learning Capacity, descriptor field." />
+            <field name="IIPDateMod" type="Date" comment="Date of last modification." />
+            <field name="IIPSLP" type="Boolean" defaultValue="0" comment="Speech-language pathologists assignment." />
+            <field name="IIPEA" type="Boolean" defaultValue="0" comment="Educational Assistant assignment." />
+            <field name="IIPOT" type="Boolean" defaultValue="0" comment="Occupational Therapist assignment." />
+            <field name="IIPPT" type="Boolean" defaultValue="0" comment="Physiotherapist assignment." />
+            <field name="IIPMS" type="Boolean" defaultValue="0" comment="Medical Specialist assignment." />
+            <field name="IIPPSY" type="Boolean" defaultValue="0" comment="Psychologist assignment." />
+        </extendedTable>
+    </psExtension>
