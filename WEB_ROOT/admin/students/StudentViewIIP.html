@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Intensive Supports Overview</title>
+    <!-- required scripts -->
+    ~[wc:commonscripts]
+    <!-- Required style sheets: screen.css, and print.css -->
+    <link href="/images/css/screen.css" rel="stylesheet" media="screen">
+    <link href="/images/css/print.css" rel="stylesheet" media="print">
+</head>
+
+<body>
+    ~[wc:admin_header_frame_css]
+    <!-- breadcrumb start -->
+    <a href="/admin/home.html" target="_top">Start Page</a> &gt; <a href="/admin/students/home.html?selectstudent=nosearch" target="_top">Student Selection</a> &gt; Intensive Supports Overview
+    <!-- breadcrumb end -->
+    ~[wc:admin_navigation_frame_css]
+    <!-- start of main menu and content -->
+    ~[wc:title_student_begin_css]Student IIP Overview~[wc:title_student_end_css]
+   <div class="box-round">
+    <h2>Assigned Supports</h2>
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    ~[if#IIPSLP.~([Students.U_EXTENDEDALERTS]IIPSLP)=1]
+                    Yes
+                    [else#IIPSLP]
+                    No
+                    [/if#IIPSLP]
+                    <label>- Speech-Language Pathologist</label>
+                </td>
+                <td>
+                    ~[if#IIPEA.~([Students.U_EXTENDEDALERTS]IIPEA)=1]
+                    Yes
+                    [else#IIPEA]
+                    No
+                    [/if#IIPEA]
+                    <label>- Educational Assistant</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    ~[if#IIPOT.~([Students.U_EXTENDEDALERTS]IIPOT)=1]
+                    Yes
+                    [else#IIPOT]
+                    No
+                    [/if#IIPOT]
+                    <label>- Occupational Therapist</label>
+                </td>
+                <td>
+                    ~[if#IIPPT.~([Students.U_EXTENDEDALERTS]IIPPT)=1]
+                    Yes
+                    [else#IIPPT]
+                    No
+                    [/if#IIPPT]
+                    <label>- Physiotherapist</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    ~[if#IIPMS.~([Students.U_EXTENDEDALERTS]IIPMS)=1]
+                    Yes
+                    [else#IIPMS]
+                    No
+                    [/if#IIPMS]
+                    <label>- Medical Specialist</label>
+                </td>
+                <td>
+                    ~[if#IIPPSY.~([Students.U_EXTENDEDALERTS]IIPPSY)=1]
+                    Yes
+                    [else#IIPPSY]
+                    No
+                    [/if#IIPPSY]
+                    <label>- Psychologist</label>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h1>Introductory IIP Information</h1>
+    <h2>Student Comment</h2>
+    <p>~([Students.U_EXTENDEDALERTS]IIPStuComment)</p>
+    <h2>Learning Capacity</h2>
+    <p>~([Students.U_EXTENDEDALERTS]IIPLearnCap)</p>
+    <h2>Short Term Plan</h2>
+    <p>~([Students.U_EXTENDEDALERTS]IIPShortPlan)</p>
+    <h2>Long Term Plan</h2>
+    <p>~([Students.U_EXTENDEDALERTS]IIPLongPlan)</p>
+    <h2>Additional Information</h2>
+    <p>~([Students.U_EXTENDEDALERTS]IIPAddInfo)</p>
+</div>
+    <!-- end of content area -->
+    ~[wc:admin_footer_frame_css]
+</body>
+
+</html>
